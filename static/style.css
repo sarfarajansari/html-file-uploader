@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+*::selection{
+  background-color: #0f0;
+  color: #00f;
+}
+#page {
+  background-color: #333;
+  font-family: "Gill Sans", Calibri, sans-serif;
+}
+header {
+  background-color: #000;
+  color: #eee;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.title {
+  font-family: Calibri, sans-serif;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 40px;
+  color: #fff;
+}
+.title:hover {
+    color: #eee;
+    text-decoration: underline;
+  }
+
+/* For mobile and devices below 900px */
+@media screen and (max-width: 900px) {
+  header.lg {
+    display: none;
+  }
+  .title {
+    margin: 3% 5%;
+  }
+  .ham-icon {
+    position: absolute;
+    top: 50px;
+    transform: translateY(-100%);
+    right: 5%;
+    font-size: 30px;
+  }
+  .menu {
+    background-color: #111;
+    height: 0;
+    overflow: hidden;
+  }
+  .open {
+    height: 100%;
+    padding: 2%;
+  }
+  ul {
+    list-style: none;
+    margin: 0 5%;
+    font-weight: 600;
+  }
+  ul li a{
+    color: #eee;
+    text-decoration: none;
+    margin: 2% 0;
+  }
+}
+/*  For devices above 900px */
+@media screen and (min-width: 900px) {
+  header.sm {
+    display: none;
+  }
+  header {
+    width: auto;
+    padding: 15px 15%;
+  }
+  .title{
+    font-size: 40px;
+  }
+  .nav {
+    float: right;
+  }
+  .nav a {
+    color: #ddd;
+    float: left;
+    line-height: 1.5;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 0 3px;
+    margin: 0 10px;
+  }
+  .nav a:hover {
+    border-bottom: 3px solid #fff;
+    color: #fff;
+  }
+}
+/* header end */
+
+/* don't look above write your code here */
+.row1{
+  background-color: rgb(162, 237, 238);
+}
+.row2{
+  background-color: rgb(247, 193, 162);
+}
+
+.row1,.row2{
+  text-decoration: none;
+  color: #000;
+  text-align: left;
+}
+.project{
+  text-decoration-line: none;
+}
+
+.projects-container{
+  border: 2px solid wheat;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* don't look below write your code above */
+
+
+/* Footer */
+.fixed-footer-extra{
+  height: 60px;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+}
+
+.foot-container {
+  text-align: left;
+  padding: 1% 15%;
+}
+
+.foot-social {
+  display: inline;
+  float: right;
+}
+
+
+.icon {
+  color: #ddd;
+  text-align: center;
+  line-height: 30px;
+  font-size: 25px;
+  padding: 0 15px;
+}
+
+.icon:hover {
+  color: #fff;
+  font-size: 30px;
+}
+
+.foot-link,
+.foot-text p {
+  line-height: 30px;
+  font-size: 25px;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.foot-link {
+  font-weight: 700;
+  color: #eee;
+}
+
+.foot-link:hover {
+  text-decoration: underline;
+}
+/* For devices below 1100px */
+@media screen and (max-width: 1100px) {
+  .foot-container {
+    text-align: center;
+    padding: 1%;
+  }
+
+  .foot-link,
+  .foot-text p {
+    font-size: 20px;
+  }
+
+  .foot-social {
+    float: none;
+    display: block;
+    padding: 0 5px 3px;
+  }
+
+  .icon {
+    padding: 0 10px;
+    font-size: 20px;
+  }
+}
+/* For devices below 600px */
+@media screen and (max-width: 600px) {
+  .icon {
+    padding: 0 5px;
+    font-size: 20px;
+  }
+  .icon:hover {
+    font-size: 24px;
+  }
+  .foot-link,
+  .foot-text p {
+    line-height: 24px;
+    font-size: 18px;
+  }
+}

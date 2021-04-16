@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="coding, learn web development for free">
+  <meta name="description"
+    content="dubeyTech is an free online e-learning platform where you can learn to code at the cost of only your dedication!">
+  <!--  iconLink CDN -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <!-- bootstrp -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <!-- custom css -->
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+  <title>dubeyTech_e-Learning</title>
+</head>
+
+<body id="page">
+  <header class="sm">
+    <a href="http://dubeytech.herokuapp.com/">
+      <h1 class="title">dubeyTech</h1>
+    </a>
+    <span class="ham-icon">&#9776;</span>
+    <div class="menu">
+      <ul>
+        <li><a href="http://dubeytech.herokuapp.com/">HOME</a></li>
+        <li><a href="http://dubeytech.herokuapp.com/#courses">COURSES</a></li>
+        <li><a href="https://dubeytech-prashant.github.io/cv">ABOUT US</a></li>
+        <li><a href="mailto:dubeyprashant583@gmail.com">CONTACT US</a></li>
+      </ul>
+    </div>
+  </header>
+  <header class="lg">
+    <div class="navbar">
+      <a href="http://dubeytech.herokuapp.com/">
+        <h1 class="title">dubeyTech</h1>
+      </a>
+      <div class="nav">
+        <a href="http://dubeytech.herokuapp.com/">HOME</a>
+        <a href="http://dubeytech.herokuapp.com/#courses">COURSES</a>
+        <a href="https://dubeytech-prashant.github.io/cv">ABOUT</a>
+        <a href="mailto:dubeyprashant583@gmail.com">CONTACT</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="row justify-content-center ">
+    <div class="col col-lg-10">
+      <!-- Write your code here -->
+      {% block body %}
+      {% endblock %}
+    </div>
+
+
+
+
+
+
+  </main>
+
+  <div class="fixed-footer-extra"></div>
+
+  <footer>
+    {% if project.username %}
+
+    <p class="bg-dark text-white">Posted by {{project.username}}</p>
+
+    {% endif %}
+    <div class="foot-container">
+      <div class="foot-social">
+        <a href="https://www.linkedin.com/in/prashant-dubey-204984209"><i class="icon fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/dubeyfire07" class="icon tw"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:dubeyprashant583@gmail.com" class="icon em"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/dubeytechofficial" class="icon ig"><i class="fab fa-instagram"></i></a>
+        <a href="https://stackoverflow.com/users/14899603/prashant-dubey" class="icon st"><i
+            class="fab fa-stack-overflow"></i></a>
+        <p4 style="position: absolute;right: 8px;">POWERED by Sarfaraj</p4>
+      </div>
+
+      <div class="foot-text">
+        <p>
+          &copy; Copyright <a href="https://dubeytech-prashant.github.io/cv" class="foot-link">dubeyTech</a> 2021.
+        </p>
+
+      </div>
+    </div>
+  </footer>
+  <!--------       jQuery CDN       -------- -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script>
+    $(".ham-icon").click(() => $(".menu").toggleClass("open"));
+  </script>
+
+</body>
+{% if project %}
+<script>
+  document.getElementById("page").classList.add("bg-light");
+</script>
+
+{% endif %}
+
+</html>
