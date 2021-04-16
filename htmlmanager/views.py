@@ -79,11 +79,6 @@ def submit(request):
                     filename = P[name]
                     projectfile = ProjectFile.objects.create(data=htmlfile,project=project,filename=filename)
 
-                
-            project.site = "/project/"+project.name+"/"+project.index
-            project.save()
-
-
 
             return redirect(project.site)
 

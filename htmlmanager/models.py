@@ -5,7 +5,6 @@ from django.db import models
 class Project(models.Model):
     name = models.CharField(max_length=150)
     username = models.CharField(max_length=150,default="",blank=True)
-    site = models.URLField(default="/project/")
 
     @property
     def index(self):
@@ -13,6 +12,10 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def site(self):
+        return "/project/"+self.name+"/"+self.index
 
 
 class ProjectFile(models.Model):
