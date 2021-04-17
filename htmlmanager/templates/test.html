@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+{% if html %}
+
+{{html|safe}}
+
+
+    <div class="row justify-content-center">
+        <div class="col-6 justify-content-center">
+            <a href="{% url 'test' %}">
+                <button class="btn btn-primary w-100" >
+                    Test Again
+                </button>
+            </a>
+        </div>
+    </div>
+
+
+{% else %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 bg-secondary  col-md-10  shadow p-3 mb-5  rounded">
+        <h1 class="text-center text-white">TEST A PAGE</h1>
+
+        <hr>
+        <form method="GET" action="{% url 'test' %} ">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="mb-3">
+                        <textarea class="form-control" name="html"
+                            placeholder="FILE DATA : Paste your file data here!" id="exampleFormControlTextarea1"
+                            rows="5"></textarea>
+                    </div>
+                </div>
+                <hr>
+
+                <input type="submit" value="View page" class="btn btn-success w-50">
+
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

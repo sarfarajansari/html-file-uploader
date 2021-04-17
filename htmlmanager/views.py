@@ -84,4 +84,9 @@ def submit(request):
 
         return redirect("/admin/")
 
+def test(request):
+    if "html" in request.GET:
+        html = request.GET["html"]
+        return render(request,"test.html",{"html":html})
 
+    return render(request,"test.html")
