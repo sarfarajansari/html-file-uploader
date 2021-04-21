@@ -1,44 +1,30 @@
 {% extends 'layout.html' %} {% block body %} {% if html %} {{html|safe}}
 
-<div class="row justify-content-center">
-  <div class="col-6 justify-content-center">
-    <a href="{% url 'test' %}">
-      <button class="btn btn-primary w-100">Test Again</button>
-    </a>
-  </div>
+<div class="test-again">
+  <hr style="margin: 5px 0;" />
+  <a href="{% url 'test' %}">
+    <button class="test-btn">Test Again</button>
+  </a>
 </div>
 
 {% else %}
+<div class="test-wrapper">
+  <h1 class="page-title">TEST A PAGE</h1>
 
-<div class="row justify-content-center">
-  <div class="col-lg-8 bg-secondary col-md-10 shadow p-3 mb-5 rounded">
-    <h1 class="text-center text-white">TEST A PAGE</h1>
+<hr style="margin: 5px 0;" />
 
-    <hr />
-    <form method="GET" action="{% url 'test' %} ">
-      <div class="row justify-content-center">
-        <div class="col">
-          <div class="mb-3">
-            <textarea
-              class="form-control"
-              name="html"
-              placeholder="FILE DATA : Paste your file data here!"
-              id="exampleFormControlTextarea1"
-              rows="5"
-            ></textarea>
-          </div>
-        </div>
-        <hr />
+<form class="test-form" method="GET" action="{% url 'test' %} ">
 
-        <input type="submit" value="View page" class="btn btn-success w-50" />
-      </div>
-    </form>
-  </div>
+  <textarea class="test-text" name="html" placeholder="FILE DATA : Paste your file data here!"
+    id="exampleFormControlTextarea1" rows="20"></textarea>
+
+  <hr />
+
+  <input type="submit" value="View page" class="test-btn" />
+
+</form>
 </div>
-{% endif %}
 
-<script>
-  document.getElementById("page").classList.add("bg-light");
-</script>
+{% endif %}
 
 {% endblock %}

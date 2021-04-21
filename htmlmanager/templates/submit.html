@@ -1,70 +1,66 @@
-{% extends 'layout.html' %} 
+{% extends 'layout.html' %}
 {% block body %}
 <br>
-<div class="row justify-content-center" >
-    <div class="col-lg-8 bg-secondary  col-md-10  shadow p-3 mb-5  rounded">
-        <h1 class="text-center text-white">POST YOUR PROJECT</h1>
+<h1 class="page-title">POST YOUR PROJECT</h1>
+
+<hr>
+{% if n %}
+<form method="POST" action="{% url 'submit' %} ">
+    <div class="project-form">
+        {% csrf_token %}
+        {% for i in range %}
+        <input placeholder="File Name" type="text" name="filename{{i}}" required class="form-control"
+            id="inputGroupFile01">
+
+        <textarea class="form-control" name="html{{i}}" placeholder="FILE DATA : Paste your file data here!"
+            id="exampleFormControlTextarea1" rows="3"></textarea>
 
         <hr>
-        {% if n %}
-        <form method="POST" action="{% url 'submit' %} " >
-            <div class="row justify-content-center">
-                {% csrf_token %}
-                {% for i in range %}
-                <div class="col-lg-4">
-                    <div class=" mb-3 ">
-                        <input placeholder="File Name" type="text" name="filename{{i}}" required  class="form-control" id="inputGroupFile01">
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="mb-3">
-                        <textarea class="form-control" name="html{{i}}" placeholder="FILE DATA : Paste your file data here!" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                </div>
-                <hr>
-                {% endfor %}
-                <input type="hidden" required name="n" value="{{n}}">
+        {% endfor %}
+        <input type="hidden" required name="n" value="{{n}}">
 
-                <ol class="col-10">
-                    <h3>Note: </h3>
-                    <li>Make sure the first file is home page of the project</li>
-                    <li>You dont need to write ".html" in filename for html files</li>
-                    <li>Make sure you write file extensions for CSS and JS files!</li>
-                </ol>
-                
-                <input type="submit" value="POST" class="btn btn-success w-50">
-                    
-            </div>
-        </form>
-        
-        {% else %}
-        {% if error %}
-        <div class="alert alert-danger" role="alert">
-            {{error}}
+        <ol class="note">
+            <h3>Note: </h3>
+            <li>Make sure the first file is home page of the project</li>
+            <li>You dont need to write ".html" in filename for html files</li>
+            <li>Make sure you write file extensions for CSS and JS files!</li>
+        </ol>
+
+        <input type="submit" value="POST" class="test-btn">
+
+    </div>
+</form>
+
+{% else %}
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{error}}
+</div>
+{% endif %}
+
+<form method="GET" action="{% url 'submit' %} ">
+    <div class="project-form">
+        {% if not request.session.name %}
+        <input type="text" name="name" required placeholder="Your Name" class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <br>
+        {% endif %}
+        <input type="text" name="project" required placeholder="Project Name" class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <br>
+        <input type="number" name="n" required placeholder="Number of files in your project" class="form-control"
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <div>
+            <input class="test-btn" type="submit" value="Next">
         </div>
-        {% endif %}
-
-        <form method="GET" action="{% url 'submit' %} ">
-            <div class="row justify-content-center">
-                {% if not request.session.name %}
-                <div class="input-group mb-3">
-                    <input type="text" name="name" required placeholder="Your Name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                {% endif %}
-                <div class="input-group mb-3">
-                    <input type="text" name="project" required placeholder="Project Name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <div class="input-group mb-3">
-                    <input type="number" name="n" required placeholder="Number of files in your project" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <input type="submit" value="Next" class="btn btn-success w-50">
-                    
-            </div>
-        </form> 
-        
-        {% endif %}
 
 
     </div>
+</form>
+
+{% endif %}
+
+
+</div>
 </div>
 {% endblock %}
