@@ -1,21 +1,15 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="container text-white text-center">
-    <h1 class="display-2">PROJECTS</h1>
+<div class="project-list">
+    <h1 class="page-title">PROJECTS</h1>
     <hr>
-
-    <div class="row justify-content-center">
-        <div class="col-11 projects-container">
-
-            {% for project in projects reversed %}
-            <a class="project" href="{{project.site}}">
-                <div class="row {% cycle 'row1' 'row2' %}">
-                    <h3>project : {{project.name}} by {{project.username}}</h3>
-                </div>
-            </a>
-            {% endfor %}
+    {% for project in projects reversed %}
+    <a class="project" href="{{project.site}}">
+        <div class="row {% cycle 'row1' 'row2' %}">
+            <h3>{{project.name}} by <span class="author">{{project.username}}</span></h3>
         </div>
-    </div>
+    </a>
+    {% endfor %}
 </div>
 
 
